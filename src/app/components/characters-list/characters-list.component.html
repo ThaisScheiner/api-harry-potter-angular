@@ -1,0 +1,16 @@
+<div class="character-list">
+  <div *ngIf="characters$ | async as personagens; else loading">
+    <div *ngFor="let character of personagens; trackBy: trackCharacter">
+      <!-- Passando o objeto completo 'character' e a string 'nome' -->
+      <app-characters-card 
+        [character]="character"
+        [nome]="character.name">
+      </app-characters-card>
+
+
+    </div>
+  </div>
+  <ng-template #loading>
+    <p>Carregando personagens...</p>
+  </ng-template>
+</div>

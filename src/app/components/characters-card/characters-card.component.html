@@ -1,0 +1,10 @@
+<div class="character-card">
+  <img [src]="imageUrl"
+       alt="{{ character.name }}"
+       (error)="imagemFallback($event)" />
+
+  <h2>{{ character.name }}</h2>
+  <p>Casa: {{ character.house }}</p>
+  <p>Data de nascimento: {{ character.dateOfBirth }}</p>
+  <p>Espécie: {{ character.species }}</p>
+</div>
