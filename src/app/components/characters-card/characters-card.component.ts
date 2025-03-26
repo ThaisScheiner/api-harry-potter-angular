@@ -1,16 +1,26 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Character } from '../../models/character.model';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-characters-card',
+  imports: [
+    MatButtonModule,
+    MatCardModule,
+    CommonModule
+  ],
+  standalone: true,
   templateUrl: './characters-card.component.html',
-  styleUrls: ['./characters-card.component.scss']
+  styleUrls: ['./characters-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharactersCardComponent implements OnInit {
   @Input() character!: Character;
   @Input() nome!: string;
 
-  imageUrl: string = ''; 
+  imageUrl: string = '';
   readonly imagemPadrao: string = 'assets/images/default-character.jpg'; // Imagem padrão
 
   ngOnInit(): void {
