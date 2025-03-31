@@ -1,16 +1,25 @@
-<div class="character-list">
-  <div *ngIf="characters$ | async as personagens; else loading">
-    <div *ngFor="let character of personagens; trackBy: trackCharacter">
-      <!-- Passando o objeto completo 'character' e a string 'nome' -->
-      <app-characters-card 
-        [character]="character"
-        [nome]="character.name">
-      </app-characters-card>
+<div class="search-container">
+  <app-search-characters (search)="onSearch($event)"></app-search-characters>
+</div>
 
+<div class="cards-container">
+  <ng-container *ngIf="isLoading; else loaded">
+    <p>Carregando...</p> <!-- Exibe quando está carregando -->
+  </ng-container>
 
-    </div>
-  </div>
-  <ng-template #loading>
-    <p>Carregando personagens...</p>
+  <ng-template #loaded>
+    <ng-container *ngIf="personagens.length > 0; else noResults">
+      <div *ngFor="let personagem of personagens; trackBy: trackByIndex">
+        <app-characters-card [character]="personagem"></app-characters-card>
+      </div>
+    </ng-container>
+
+    <ng-template #noResults>
+      <p class="no-results">Nenhum personagem encontrado.</p>
+    </ng-template>
   </ng-template>
+
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
 </div>

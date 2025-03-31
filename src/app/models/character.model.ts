@@ -4,5 +4,5 @@ export interface Character {
   house: string;
   dateOfBirth: string;
   species: string;
-  gender: string;  
+  gender: string;
 }

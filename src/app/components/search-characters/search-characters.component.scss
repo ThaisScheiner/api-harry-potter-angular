@@ -1,0 +1,29 @@
+.search-container {
+  display: flex;
+  justify-content: center; 
+  margin-top: 50px 0; 
+}
+
+.search-field {
+  width: 450px; /* Define um tamanho fixo */
+}
+
+.search-field .mat-mdc-text-field-wrapper {
+  border-radius: 50px; /* Arredonda as bordas */
+  overflow: hidden; /* Garante que o arredondamento seja aplicado corretamente */
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.no-results {
+  text-align: center;
+  font-size: 18px;
+  color: red;
+  margin-top: 20px;
+}
+
