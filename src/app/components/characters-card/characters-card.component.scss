@@ -1,15 +1,5 @@
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 10px;
-}
-
 .character-card {
-  width: 250px; /* Ajuste fino para manter o tamanho ideal */
-  height: 400px; /* Ajustado para manter proporção */
+  width: 300px; /* Aumentado de 250px para 300px */
   background-color: #222;
   color: white;
   border-radius: 12px;
@@ -26,46 +16,17 @@
   }
 }
 
-.character-card img {
-  width: 100%;
-  height: 420px; /* Garantindo uma proporção uniforme */
-  object-fit: cover;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-}
-
-
-mat-card-content {
-  text-align: center;
-  height: 250px;
-  padding: 10px;
-  background: #111; /* Mantém a separação entre a imagem e o texto */
-}
-
-mat-card-content h3 {
-  margin: 5px 0;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-mat-card-content p {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-
-
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .cards-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
+/* Ajustar para manter 3 cards por linha */
+@media (min-width: 900px) {
   .character-card {
-    width: 220px;
-    height: 380px;
+    flex: 1 1 calc(33.333% - 20px); /* Garante 3 por linha */
+    max-width: 350px; /* Limite máximo */
+  }
+}
+
+@media (max-width: 768px) {
+  .character-card {
+    flex: 1 1 calc(50% - 20px); /* 2 por linha */
   }
 }
 
@@ -77,8 +38,6 @@ mat-card-content p {
 
   .character-card {
     width: 90%;
-    max-width: 300px;
-    height: auto;
+    max-width: 320px; /* Ajustado para telas menores */
   }
 }
-

@@ -13,5 +13,5 @@ import { MatCardModule } from '@angular/material/card';
   styleUrls: ['./characters-card.component.scss']
 })
 export class CharactersCardComponent {
-  @Input() character: any;  
+  @Input() character!: any;  
 }

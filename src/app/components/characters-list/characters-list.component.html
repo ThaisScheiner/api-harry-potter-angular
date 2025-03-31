@@ -4,14 +4,15 @@
 
 <div class="cards-container">
   <ng-container *ngIf="isLoading; else loaded">
-    <p>Carregando...</p> <!-- Exibe quando está carregando -->
+    <p>Carregando...</p>
   </ng-container>
 
   <ng-template #loaded>
     <ng-container *ngIf="personagens.length > 0; else noResults">
-      <div *ngFor="let personagem of personagens; trackBy: trackByIndex">
-        <app-characters-card [character]="personagem"></app-characters-card>
-      </div>
+      <app-characters-card 
+        *ngFor="let personagem of personagens; trackBy: trackByIndex"
+        [character]="personagem">
+      </app-characters-card>
     </ng-container>
 
     <ng-template #noResults>
